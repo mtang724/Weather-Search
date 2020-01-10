@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="info.mingyuet.weathersearch">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".NukeSSLCerts"
+        android:allowBackup="true"
+        android:icon="@drawable/weather_partly_snowy_rainy_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/weather_partly_snowy_rainy_icon"
+        android:supportsRtl="true"
+        android:largeHeap="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".Searchable"
+            android:label="@string/title_activity_searchable"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".DynamicTabs"></activity>
+        <activity
+            android:name=".Detail"
+            android:label="@string/title_activity_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.Launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

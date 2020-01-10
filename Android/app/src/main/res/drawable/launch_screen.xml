@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- The android:opacity=”opaque” line — this is critical in preventing a flash of black as your theme transitions. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:opacity="opaque">
+
+    <!-- The background color, preferably the same as your normal theme -->
+    <item android:drawable="@android:color/black"/>
+    <!-- Your product logo - 144dp color version of your app icon -->
+    <item android:top="380dp" android:left="160dp" android:right="160dp" android:bottom="380dp">
+        <bitmap android:src="@drawable/weather_partly_snowy_rainy"
+            android:gravity="fill"/>
+    </item>
+
+    <item android:top="760dp" android:left="150dp" android:right="150dp" android:bottom="40dp">
+        <bitmap android:src="@drawable/poweredby_darkbackground"/>
+    </item>
+
+</layer-list>
