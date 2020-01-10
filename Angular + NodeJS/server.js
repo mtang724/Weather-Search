@@ -5,9 +5,6 @@ const request = require("request");
 var path = require('path');
 
 const app = express();
-const GOOGLE_API_KEY = "AIzaSyAvc_3J4bHIjgakOKJMkSIpEB-Jo3sUjnI";
-const DARK_SKY_API = "355d0440fea5d2f5b2c99379976251ed";
-const GOOGLE_CUSTOM_SEARCH_KEY = "003141370008387654934:ww6sgfqjhok";
 
 //Set the base path to the angular-test dist folder
 app.use(express.static(path.join(__dirname, 'dist/weather-search')));
