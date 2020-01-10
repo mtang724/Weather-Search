@@ -1,0 +1,30 @@
+<ngb-tabset  (tabChange)="beforeChange($event)">
+  <div class="row">
+    <div class="col-md-10">
+      <ngb-tab title="Current">
+        <ng-template ngbTabContent>
+          <app-current-tab [currentWeather]="currentWeather" [city]="city" [state]="state" [timezone]="timezone"
+            (linkEmit)="accept($event)">
+          </app-current-tab>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Hourly">
+        <ng-template ngbTabContent>
+          <app-hourly-tab [hourlyWeather]="hourlyWeather" [temperatureData]="temperatureData"></app-hourly-tab>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Weekly">
+        <ng-template ngbTabContent>
+          <app-weekly-tab [weeklyWeather]="weeklyWeather" [lat]="lat" [lon]="lon" [city]="city"></app-weekly-tab>
+        </ng-template>
+      </ngb-tab>
+    </div>
+      <ngb-tab id="tab-preventchange2">
+          <ng-template ngbTabTitle><img src="http://csci571.com/hw/hw8/Images/Twitter.png"
+            style="height: 2rem; width: 2rem;" (click)="twitter()" [ngStyle]="{'padding' : '0'}"></ng-template>
+      </ngb-tab>
+      <ngb-tab id="tab-preventchange3">
+        <ng-template ngbTabTitle><button (click)="star()" style="height: 2rem; width: 2rem; border: none;"><i class="material-icons" [ngStyle]="{'color' : starColor, 'margin-left':'-0.5rem', 'width':'2rem'}">{{starState}}</i></button></ng-template>
+      </ngb-tab>
+    </div>
+</ngb-tabset>

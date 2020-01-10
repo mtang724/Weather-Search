@@ -1,0 +1,119 @@
+<div class="container">
+  <div class="row" style="margin-top: 1rem;">
+    <div class="card m-auto col-md-8 col-11 border border-dark"
+      style="background-color:#5A87A3; color: white; box-shadow: 5px 5px 5px grey;">
+        <h2 class="titleText">Weather Search</h2>
+      <div class="row align-items-center">
+        <div class="col-1 col-md-1"></div>
+        <div class="card-body col-md-auto">
+          <form #form (ngSubmit)="onSubmit()">
+            <div class="form-group row">
+              <label for="street" class="col-md-2 col-form-label" style="white-space:nowrap;"><span>Street<span
+                    style="color: darkred;">*</span></span></label>
+              <div class="col-md-7">
+                <input matInput [formControl]="myControl" type="text" name="street" id="street"
+                  placeholder="Enter Street Name" class="form-control border border-dark" [(ngModel)]="street"
+                  (blur)="isValidStreet()" (ngModelChange)='streetChange()' required>
+                <div *ngIf="streetValid" style="color: darkred; font-weight: 700;">
+                  Please enter a street.
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="city" class="col-md-2 col-form-label" style="white-space:nowrap;">City<span
+                  style="color: darkred;">*</span></label>
+              <div class="col-md-7">
+                <input matInput [formControl]="myControl" [matAutocomplete]="auto" (ngModelChange)="onChange($event)"
+                  name="city" class="form-control border border-dark" id="city" placeholder="Enter City Name"
+                  (blur)="isCityValid()" required>
+                <div *ngIf="cityValid" style="color: darkred; font-weight: 700;">
+                  Please enter a city.
+                </div>
+              </div>
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of options" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+            </div>
+            <app-state-list (foo)="onListen($event)" [inputDisabled]="inputDisabled"></app-state-list>
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input border border-dark" type="checkbox" [value]="checked" id="check"
+                  name="checkbox" (click)="checkboxClick()" required>
+                <label class="form-check-label" for="check">
+                  Current location
+                </label>
+              </div>
+            </div>
+            <div class="row">
+                <button class="btn btn-light border border-dark" type="submit" value="Search"
+                  [disabled]="isDisabled" style="margin-left: 15px;">
+                  <mat-icon style="vertical-align:middle;height: auto;">search</mat-icon><span>Search</span>
+                </button>
+                <button class="btn btn-light border border-dark" type="reset" value="Clear" (click)="clearAll()" style="margin-left: 15px;">
+                  <mat-icon style="vertical-align:middle;height: auto;"> clear_all</mat-icon><span>Clear</span>
+                </button>
+              </div>
+            <div style="height: 3rem;"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 2rem;">
+    <div class="form-inline col-md-5 col-sm-6 col-9 m-auto">
+      <div class="col-md-5 col-sm-6 col-6">
+        <button type="button" [ngStyle]="{'background-color': submitBackgroundColor, 'color': submitColor}" class="btn col border border-dark" (click)="results()"
+          style="height: auto;width: auto; font-size: 1rem; margin-left: 20px;">Result</button>
+      </div>
+      <div class="height:auto;col-md-5 col-sm-6 col-6">
+        <button type="button" [ngStyle]="{'background-color': favoriteBackgroundColor, 'color': favoriteColor}" class="btn col btn-light border border-dark" (click)="favorites()"
+          style="width: auto; font-size: 1rem;">Favorites</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isError&&result" class="alert alert-warning" role="alert" style="margin-top: 2rem;">
+      Invalid Address.
+  </div>
+  <div *ngIf="submitted&&result">
+    <div *ngIf="display" class="progress" [ngStyle]="{'margin-top': '3rem'}">
+      <div class="progress-bar progress-bar-striped bg-info" role="progressbar" [ngStyle]="{'width': progress + '%'}"
+        [attr.aria-valuenow]="progress" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+
+    <div class="row justify-content-md-center" style="margin-top: 2rem;" *ngIf="progress == '100'&&submitted">
+      <app-tabsets class="col-md-10" [weatherDetail]="weatherDetail" [city]="city" [state]="state"></app-tabsets>
+    </div>
+  </div>
+  <div *ngIf="favorite" style="margin-top: 4rem;">
+    <div *ngIf="localStorageLength == 0 || dataList.length == 0" class="alert alert-warning" role="alert">
+        No Records.
+    </div>
+    <div *ngIf="localStorageLength != 0 && dataList.length != 0">
+      <table class="table table-striped" style="text-align: center;">
+        <thead>
+          <tr style="background-color: #6E91AA;">
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">City</th>
+            <th scope="col">State</th>
+            <th scope="col">Favorites</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of dataList; index as i;">
+            <td scope="row">{{i+1}}</td>
+            <td><img src="{{data['sealLink']}}" style="height: 2rem; width: 2rem;"></td>
+            <td><a class="cityText" placement="bottom" ngbTooltip="{{data['city']}}" tooltipClass="my-custom-class" href="#" (click)="searchFavorite(data)" style="color: blue; text-decoration: none;">{{data['city']}}</a></td>
+            <td>{{data['state']}}</td>
+            <td><button (click)="deleteFavorite(i)" style="background-color: white; border: 0px; border-Radius: 2px; height: 2rem;"><i style = "color: #F9D556;" class="material-icons">
+                delete
+              </i></button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

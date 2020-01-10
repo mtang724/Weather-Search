@@ -1,0 +1,88 @@
+.infos {
+    display: flex;
+}
+
+.img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.detail_info {
+    height: 3rem;
+    width: 3rem;
+    flex: 1;
+    text-align: center;
+}
+
+.temperature_text {
+    font-size: 2rem;
+    padding: 0px;
+    margin: 0;
+}
+.my-custom-class .tooltip-inner {
+  font-size: 80%;
+}
+.city {
+  font-size: 1.5rem;
+  white-space:nowrap;
+}
+.timezone{
+  font-size: 1.5rem; color:
+  #3B5456; margin-top: -0.6rem;
+  white-space:nowrap;
+}
+.summary{
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 600;
+}
+.seal-img{
+  margin-top: 3rem;
+  max-width: 12rem;
+}
+@media screen and (max-width:786px) {
+  .infos {
+    margin-left: -10px;
+  }
+  .city{
+    font-size: 16px;
+    white-space:nowrap;
+  }
+  .timezone{
+    font-size: 12px; color:
+    #3B5456; margin-top: -0.6rem;
+    white-space:nowrap;
+  }
+  .temperature_text {
+    margin-top: -10px;
+    font-size: 25px;
+    padding: 0px;
+    margin: 0;
+  }
+  .summary{
+    font-size: 14px;
+    margin: 0;
+    padding: 0px;
+    font-weight: 600;
+    margin-top: -10px;
+    white-space:nowrap;
+  }
+  .detail_info {
+    height: 30px;
+    width: 10px;
+    flex: 1;
+    margin-left: 10px;
+    text-align: center;
+  }
+  .detailedText{
+    font-size: 10px;
+  }
+  .seal-img{
+    margin-left: 10px;
+    margin-top: 20px;
+  }
+  .img {
+    height: 15px;
+    width: 15px;
+  }
+}

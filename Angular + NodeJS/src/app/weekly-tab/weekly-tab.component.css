@@ -1,0 +1,23 @@
+p{
+  margin:0 auto
+}
+.city{
+  font-size: 1.7rem;
+  font-weight: 500;
+  white-space:nowrap;
+}
+
+@media screen and (max-width:786px) {
+  .city{
+    font-size: 20px;
+    white-space:nowrap;
+    font-weight: 500;
+  }
+  .detailedText{
+    font-size: 16px;
+  }
+  .summary {
+    font-size: 16px;
+  }
+
+}

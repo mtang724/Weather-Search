@@ -1,0 +1,21 @@
+{
+  "name": "weather-search",
+  "version": "1.0.0",
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.15.",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "path": "^0.12.7",
+    "request":"latest",
+    "ejs":"latest",
+    "aws-sdk":"latest"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "\"echo \\\"Error: no test specified\\\" && exit 1\"",
+    "start": "node server.js"
+  },
+  "author": "Mingyue Tang",
+  "license": "ISC"
+}

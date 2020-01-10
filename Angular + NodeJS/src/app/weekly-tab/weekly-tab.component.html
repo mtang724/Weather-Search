@@ -1,0 +1,39 @@
+<div id="chartContainer" style="height: 300px; width: 100%; margin-top: 3rem;"></div>
+
+<ng-template #template>
+  <div class="modal-header" style="background-color: #6E91AA;">
+    <h4 class="modal-title pull-left">{{dataTitle}}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" style="background-color: #A7D0EE;">
+    <div class="container">
+      <div class="row">
+          <div class="col-6 col-sm-6 col-md-6">
+              <p class="city">{{city}}</p>
+              <p style="font-size: 2rem;">{{temperature}}<img src="https://cdn3.iconfinder.com/data/icons/virtual-notebook/16/button_shape_oval-512.png"
+                style="height: 0.5rem; width: 0.5rem; margin-bottom: 2rem">
+              <span class="temperature_text">F</span></p>
+              <p class="summary">{{summary}}</p>
+            </div>
+            <div class="col-5 col-sm-5 col-md-5">
+              <img src="{{icon}}"
+                style="height: 4rem; width: 4rem; margin-top: 1.5rem; margin-left: 2.5rem;">
+            </div>
+      </div>
+      <hr>
+          <div class="row">
+            <div class="col-md-7">
+            </div>
+            <div class="col-md-5">
+              <p class="detailedText">Precipitation : {{precipIntensity}}</p>
+              <p class="detailedText">Chance of Rain : {{precipProbability}} %</p>
+              <p class="detailedText">Wind Speed : {{windSpeed}} mph</p>
+              <p class="detailedText">Humidity : {{humidity}} %</p>
+              <p class="detailedText">Visibility : {{visibility}} miles</p>
+            </div>
+          </div>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,13 @@
+.titleText{
+  margin-top: 2rem;
+  text-align: center;
+}
+@media screen and (max-width:786px) {
+  .cityText{
+    font-size: 16px;
+    white-space:nowrap;
+  }
+  .titleText{margin-top: 1rem;
+    text-align: center;
+  }
+}

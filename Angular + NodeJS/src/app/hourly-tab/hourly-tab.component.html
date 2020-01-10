@@ -1,0 +1,20 @@
+<div style="margin-top: 3rem;" class="row">
+  <div class="col-md-5 col-5 col-12">
+    <select #mySelect class="custom-select form-control" id="state_list" (change)='onOptionsSelected(mySelect.value)'
+      required>
+      <option value="temperature">Temperature</option>
+      <option value="pressure">Pressure</option>
+      <option value="humidity">Humidity</option>
+      <option value="ozone">Ozone</option>
+      <option value="visibility">Visibility</option>
+      <option value="windSpeed">Wind Speed</option>
+    </select>
+  </div>
+</div>
+<div style="margin-top: 1rem;" class="row">
+  <div class="col-md-11 col-12 m-auto">
+    <canvas baseChart [chartType]="'bar'" [datasets]="chartData" [options]="chartOptions" [labels]="chartLabels"
+      (chartClick)="onChartClick($event)">
+    </canvas>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.nav-link:hover {
+  color: gray;
+}
+.nav-link {
+  /* margin-bottom: -8px; */
+  color: black;
+  padding: .5rem 0.5rem;
+}
+
+#tab-preventchange2{
+  position: absolute;
+  right: 50px;
+  top: 0;
+  padding-bottom: 0px;
+}
+#tab-preventchange2.nav-link:hover{
+  border: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+#tab-preventchange3{
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
+#tab-preventchange3.nav-link:hover{
+  border: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+#tab-preventchange2.nav-link{
+  border: 0px;
+}
+#tab-preventchange3.nav-link{
+  border: 0px;
+}
+.titleText{
+  margin-top: 3rem;
+  text-align: center;
+}
+
+@media screen and (max-width:786px) {
+  .cityText{
+    font-size: 16px;
+    white-space:nowrap;
+  }
+  .nav-link{
+    font-size: 12px;
+  }
+  #tab-preventchange2{
+    font-size: 12px;
+    top: -5px;
+  }
+  #tab-preventchange3{
+    font-size: 12px;
+    top: -5px;
+  }
+  .table-striped>tbody>tr:nth-child(odd)>td,
+  .table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: #A5D0EE;
+    border: none;
+  }
+  .table-striped>tbody>tr:nth-child(even)>td,
+  .table-striped>tbody>tr:nth-child(even)>th {
+    background-color:  #6E91AA;
+    border: none;
+  }
+  .titleText{
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+}
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: #A5D0EE;
+   border: none;
+ }
+.table-striped>tbody>tr:nth-child(even)>td,
+.table-striped>tbody>tr:nth-child(even)>th {
+  background-color:  #6E91AA;
+  border: none;
+}

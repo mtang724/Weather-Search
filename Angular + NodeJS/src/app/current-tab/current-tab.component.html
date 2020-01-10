@@ -1,0 +1,74 @@
+<!-- SEAL IMG IN MOBILE MODEL NOT FIXED -->
+<!-- TRY TO USE BOOTSTRAP FONT -->
+
+<div class="container">
+  <div class="row justify-content-md-center" style="margin-top: 1rem;">
+    <div class="card m-auto col-md-7 col-sm-10 border border-dark" style="background-color: #A5D0EE;">
+      <div class="row align-items-center">
+        <div class="card-body m-auto">
+          <div class="row">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-7 col-sm-7 col-6">
+              <p class = "city" >{{city}}</p>
+              <p class = "timezone">{{timezone}}</p>
+              <p>
+                <span class="temperature_text">{{temperature}}</span>
+                <img src="https://cdn3.iconfinder.com/data/icons/virtual-notebook/16/button_shape_oval-512.png"
+                  style="height: 0.5rem; width: 0.5rem; margin-bottom: 2rem">
+                <span class="temperature_text">F</span>
+              </p>
+              <p class="summary">{{summary}}</p>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-6 m-auto seal-img" *ngIf="load">
+              <img
+                src={{sealLink}}
+                class="img-fluid" style="margin-top: 2rem;">
+            </div>
+          </div>
+          <div class="row" style="margin-top: 2rem">
+            <div class="col-sm-10 col-12">
+              <div class="infos">
+                <div *ngIf="humidity != 0" class="detail_info" placement="top" ngbTooltip="Humidity" tooltipClass="my-custom-class">
+                  <img class="img" src="https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-16-512.png">
+                  <p class="detailedText">
+                    {{humidity}}
+                  </p>
+                </div>
+                <div *ngIf="pressure != 0" class="detail_info" placement="top" ngbTooltip="Pressure" tooltipClass="my-custom-class">
+                  <img class="img" src="https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-25-512.png">
+                  <p class="detailedText">
+                    {{pressure}}
+                  </p>
+                </div>
+                <div *ngIf="windSpeed != 0" class="detail_info" placement="top" ngbTooltip="Wind Speed" tooltipClass="my-custom-class">
+                  <img class="img" src="https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-27-512.png">
+                  <p class="detailedText">
+                    {{windSpeed}}
+                  </p>
+                </div>
+                <div *ngIf="visibility !=0" class="detail_info" placement="top" ngbTooltip="Visibility" tooltipClass="my-custom-class">
+                  <img class="img" src="https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-30-512.png">
+                  <p class="detailedText">
+                    {{visibility}}
+                  </p>
+                </div>
+                <div *ngIf="cloudCover !=0" class="detail_info" placement="top" ngbTooltip="Cloud Cover" tooltipClass="my-custom-class">
+                  <img class="img" src="https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-28-512.png">
+                  <p class="detailedText">
+                    {{cloudCover}}
+                  </p>
+                </div>
+                <div *ngIf="ozone != 0" class="detail_info" placement="top" ngbTooltip="Ozone" tooltipClass="my-custom-class">
+                  <img class="img" src="https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-24-512.png">
+                  <p class="detailedText">
+                    {{ozone}}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
